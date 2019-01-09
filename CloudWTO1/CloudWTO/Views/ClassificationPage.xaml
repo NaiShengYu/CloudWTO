@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.ClassificationPage">
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="beiJing" Aspect= "AspectFill"/>       
+        <Grid RowSpacing="10" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="11*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="zonghe" Image="ZongHe"   Font="18" TextColor="White"  Grid.Row="0" Grid.Column="0" HorizontalOptions="End" VerticalOptions="End" Clicked="Handle_Clicked1"/>
+            <Button x:Name="ro" Image="RO"       Font="18" TextColor="White"  Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="End" Clicked="Handle_Clicked2"/>
+            <Button x:Name="zhibiao" Image="ZhiBiao" Font="18" TextColor="White"  Grid.Row="1" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Start" Clicked="Handle_Clicked3"/>
+            <Button x:Name="yujing" Image="YuJing"  Font="18" TextColor="White" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Start" Clicked="Handle_Clicked4"/>
+            <Image x:Name="yujing1" Source="yujing1" Grid.Row="1" Grid.Column="1" IsEnabled="false"   HorizontalOptions="End" VerticalOptions="Start" WidthRequest="30" HeightRequest="30"/>
+            <Image  x:Name="baojing"  Source="baojing1" Grid.Row="1" Grid.Column="1" IsEnabled="false"     HorizontalOptions="End" VerticalOptions="Start" WidthRequest="30" HeightRequest="30"/>
+                <Label x:Name="yujing11" Grid.Row="1" Grid.Column="1" IsEnabled="false" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="0" TextColor="White" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Start" WidthRequest="30" HeightRequest="30"/>
+            <Label x:Name="baojing1" Grid.Row="1" Grid.Column="1" IsEnabled="false" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="0" TextColor="White" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Start" WidthRequest="30" HeightRequest="30"/>
+            </Grid>
+             </Grid>
+    </ContentPage.Content>
+</ContentPage>

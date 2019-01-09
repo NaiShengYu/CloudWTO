@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.AlertListPage">
+    <ContentPage.Content>
+           <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*">
+                </RowDefinition>
+                <RowDefinition Height="49">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+                <Image Source="beiJing1" Aspect="AspectFill" 
+                         Grid.Row="0" Grid.RowSpan="2" Margin="0,-49,0,49" />
+            <ListView BackgroundColor="Transparent" HasUnevenRows="false" x:Name="listV" RowHeight="55" ItemSelected="Handle_ItemSelected" ItemAppearing="Handle_ItemAppearing">
+                     <ListView.Footer>
+                        <Grid HeightRequest="35">
+                        </Grid>
+                    </ListView.Footer>
+                    <ListView.Header>
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25">
+                            </RowDefinition>
+                            <RowDefinition Height="45">
+                            </RowDefinition>
+                            <RowDefinition Height="1">
+                            </RowDefinition>
+                            <RowDefinition Height="45">
+                            </RowDefinition>
+                            <RowDefinition Height="1">
+                            </RowDefinition>
+                            <RowDefinition Height="90">
+                            </RowDefinition>
+                            <RowDefinition Height="30">
+                            </RowDefinition>
+                        </Grid.RowDefinitions>
+                        <BoxView Grid.Row="0" BackgroundColor="rgb(37,94,161)">
+                        </BoxView>
+                        <Label Grid.Row="0" x:Name="businessNameLab" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+                        </Label>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="100">
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="开始时间" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start">
+                            </Label>
+                            <Button x:Name="startDateBut" Grid.Column="1" Text="{Binding Date, StringFormat='{0:yyyy-MM-dd}'}" BindingContext="{x:Reference Name=startDatePicker}" Clicked="Test_Clicked" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <Button x:Name="startTimeBut" Grid.Column="2" Text="{Binding StartTimeString, Mode=OneWay}" Clicked="Test_Clicked" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <DatePicker x:Name="startDatePicker" HorizontalOptions="End" IsVisible="false" />
+                            <TimePicker x:Name="starTimePicker" IsVisible="false" Time="{Binding startTime}" />
+                        </Grid>
+                        <BoxView Grid.Row="2" BackgroundColor="rgb(230,230,230)">
+                        </BoxView>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="100">
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="结束时间" VerticalTextAlignment="Center" Margin="15,0,0,0">
+                            </Label>
+                            <Button x:Name="endDateBut" Grid.Column="1" Text="{Binding Date, StringFormat='{0:yyyy-MM-dd}'}" BindingContext="{x:Reference Name=endDatePicker}" Clicked="Test_Clicked" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <Button x:Name="endTimeBut" Grid.Column="2" Text="{Binding EndTimeString ,Mode=OneWay}" Clicked="Test_Clicked" BindingContext="{x:Reference Name=endTimePicker}" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <DatePicker IsVisible="false" x:Name="endDatePicker">
+                            </DatePicker>
+                            <TimePicker x:Name="endTimePicker" IsVisible="false" Time="{Binding endTime}" />
+                        </Grid>
+                        <BoxView Grid.Row="4" BackgroundColor="rgb(230,230,230)">
+                        </BoxView>
+                        <Button Clicked="AddData" TextColor="White" Grid.Row="5" BackgroundColor="rgb(37,94,161)" Text="查询" HorizontalOptions="Center" FontSize="17" WidthRequest="80" BorderRadius="0" Margin="0,15,0,35">
+                        </Button>
+                        <BoxView Grid.Row="6" BackgroundColor="rgb(230,230,230)">
+                        </BoxView>
+                        <Label Grid.Row="6" Margin="10,0,0,0" FontSize="15" VerticalTextAlignment="Center" Text="预警、报警">
+                        </Label>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="80">
+                                        </ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" TextColor="White" FontSize="15" Margin="10,10,10,10" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding type}" Value="2">
+                                                <Setter Property="Text" Value="预警" />
+                                                <Setter Property="BackgroundColor" Value="rgb(207,130,65)" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding type}" Value="1">
+                                                <Setter Property="Text" Value="报警" />
+                                                <Setter Property="BackgroundColor" Value="rgb(193,60,61)" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                    <StackLayout Orientation="Vertical" Grid.Column="1" Spacing="2">
+                                        <Label Text="{Binding time}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="14" VerticalTextAlignment="End" Margin="0,11,0,0" />
+                                        <StackLayout Orientation="Horizontal" Spacing="3">
+                                            <Label FontSize="14" TextColor="Gray" Text="{Binding flowName}">
+                                            </Label>
+                                            <Label FontSize="14" TextColor="Gray" Text="{Binding equipmentName}">
+                                            </Label>
+                                            <Label FontSize="14" TextColor="Gray" Text="{Binding operName}">
+                                            </Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Label Grid.Column="2" x:Name="stateType" TextColor="White" Margin="10,10,10,10" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="15">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding handle}" Value="">
+                                                <Setter Property="Text" Value="未处理" />
+                                                <Setter Property="BackgroundColor" Value="rgb(193,60,61)" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding handle}" Value="1">
+                                                <Setter Property="Text" Value="已处理" />
+                                                <Setter Property="BackgroundColor" Value="rgb(93,149,59)" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                </Grid>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                
+            <Grid Grid.Row="1" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="alarmBut" Grid.Column="0" Text="预警" TextColor="Black"  BackgroundColor="rgb(230,230,230)" BorderRadius="0" Clicked="Handle_Clicked" Image="tick.png">
+                </Button>
+                <Button x:Name="alertBut" Grid.Column="1" Text="报警" TextColor="Black"  BackgroundColor="rgb(230,230,230)" BorderRadius="0" Clicked="Handle_Clicked" Image="tick.png">
+                </Button>
+            </Grid>
+       </Grid>
+    </ContentPage.Content>
+</ContentPage>

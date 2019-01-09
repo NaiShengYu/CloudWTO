@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.ParameterIconInfoPage">
+    <ContentPage.Content>
+                <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30">
+                </RowDefinition>
+                <RowDefinition Height="25">
+                </RowDefinition>
+                <RowDefinition Height="45">
+                </RowDefinition>
+                <RowDefinition Height="*">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+                    <Image Source="beiJing1" Aspect="AspectFill" 
+                         Grid.Row="0" Grid.RowSpan="4" Margin="0,-95,0,0" />
+            <BoxView Grid.Row="0" BackgroundColor="rgb(37,94,161)">
+            </BoxView>
+            <Label Grid.Row="0" x:Name="businessNameLab" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+            <BoxView Grid.Row="1" BackgroundColor="rgb(27,69,118)">
+            </BoxView>
+            <Label Grid.Row="1" x:Name="gongyiliucheng" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+
+            <Grid Grid.Row="2" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="时刻"  BackgroundColor="rgb(230,230,230)" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Label  Grid.Column="1" x:Name="unitLab"  BackgroundColor="rgb(230,230,230)" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            </Grid>
+
+
+            <ListView Grid.Row="3" BackgroundColor="Transparent" x:Name="listV" RowHeight="50">
+             <ListView.Footer>
+                        <Grid HeightRequest="35">
+                        </Grid>
+                    </ListView.Footer>
+                    <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell IsEnabled="false">
+                            <ContentView>
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding time}"   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                  <Label  Grid.Column="1" Text="{Binding value, StringFormat='{0:F2}'}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                </Grid>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>       
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

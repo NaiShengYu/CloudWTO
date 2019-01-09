@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="CloudWTO.Views.ParameterIconPage"
+             xmlns:chart="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+>
+    <ContentPage.Content>
+        
+            <ScrollView >
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30">
+                    </RowDefinition>
+                    <RowDefinition Height="25">
+                    </RowDefinition>
+                    <RowDefinition Height="50">
+                    </RowDefinition>
+                    <RowDefinition Height="1">
+                    </RowDefinition>
+                    <RowDefinition Height="50">
+                    </RowDefinition>
+                    <RowDefinition Height="1">
+                    </RowDefinition>
+                    <RowDefinition Height="70">
+                    </RowDefinition>
+                    <RowDefinition Height="250">
+                    </RowDefinition>
+                     <RowDefinition Height="90">
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+                <BoxView Grid.Row="0" BackgroundColor="rgb(37,94,161)">
+                </BoxView>
+                <Label Grid.Row="0" x:Name="businessNameLab" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+                </Label>
+                <BoxView Grid.Row="1" BackgroundColor="rgb(27,69,118)">
+                </BoxView>
+                <Label Grid.Row="1" x:Name="gongyiliucheng" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+                </Label>
+                <Grid Grid.Row="2">
+                     <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="100">
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="开始时间" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start">
+                            </Label>
+                            <Button x:Name="startDateBut" Grid.Column="1" Text="{Binding Date, StringFormat='{0:yyyy-MM-dd}'}" BindingContext="{x:Reference Name=startDatePicker}" Clicked="Test_Clicked" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <Button x:Name="startTimeBut" Grid.Column="2" Text="{Binding StartTimeString, Mode=OneWay}" Clicked="Test_Clicked" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <DatePicker x:Name="startDatePicker" HorizontalOptions="End" IsVisible="false" />
+                            <TimePicker x:Name="starTimePicker" IsVisible="false" Time="{Binding startTime}" />
+                </Grid>
+                <BoxView Grid.Row="3" BackgroundColor="rgb(230,230,230)">
+                </BoxView>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="100">
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="结束时间" VerticalTextAlignment="Center" Margin="15,0,0,0">
+                            </Label>
+                            <Button x:Name="endDateBut" Grid.Column="1" Text="{Binding Date, StringFormat='{0:yyyy-MM-dd}'}" BindingContext="{x:Reference Name=endDatePicker}" Clicked="Test_Clicked" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <Button x:Name="endTimeBut" Grid.Column="2" Text="{Binding EndTimeString ,Mode=OneWay}" Clicked="Test_Clicked" BindingContext="{x:Reference Name=endTimePicker}" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <DatePicker IsVisible="false" x:Name="endDatePicker">
+                            </DatePicker>
+                            <TimePicker x:Name="endTimePicker" IsVisible="false" Time="{Binding endTime}" />
+                </Grid>
+                <BoxView Grid.Row="5" BackgroundColor="rgb(230,230,230)">
+                </BoxView>
+                <BoxView Grid.Row="6" BackgroundColor="rgb(230,230,230)">
+                </BoxView>
+                <Button x:Name="addMoreBut" Clicked="Handle_Clicked" TextColor="White" Grid.Row="6" BackgroundColor="rgb(37,94,161)" Text="查询" HorizontalOptions="Center" FontSize="17" WidthRequest="80" BorderRadius="0"
+                    Margin="0,15,0,15"/>
+
+                <StackLayout Grid.Row="7" >
+                        <chart:PlotView x:Name="pView" HeightRequest="250">
+                    </chart:PlotView>
+                </StackLayout>
+
+               <Button Clicked="Handle_Clicked1" TextColor="White" Grid.Row="8" BackgroundColor="rgb(37,94,161)" Text="数据详情" HorizontalOptions="Center" FontSize="17" WidthRequest="120" HeightRequest="50" BorderRadius="0"
+                    Margin="0,15,0,15"/>
+
+
+                    
+            </Grid>
+                </ScrollView>
+      
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.BusinessDetailsPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*">
+                </RowDefinition>
+                <RowDefinition Height="49">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image Source="beiJing1" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="2" Margin="0,-45,0,45" />
+            <ListView BackgroundColor="Transparent" Grid.Row="0" RowHeight="55" x:Name="listV" ItemSelected="Handle_ItemSelected">
+                <ListView.Footer>
+                    <Grid HeightRequest="35">
+                    </Grid>
+                </ListView.Footer>
+                <ListView.Header>
+                    <Grid RowSpacing="0">
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <!--    <RowDefinition Height="40">
+                                </RowDefinition>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                                <RowDefinition Height="1">
+                                </RowDefinition>-->
+                                <!-- <RowDefinition Height="50">
+                                </RowDefinition>
+                                <RowDefinition Height="1">
+                                </RowDefinition>
+                                <RowDefinition Height="50">
+                                </RowDefinition>
+                                <RowDefinition Height="1">
+                                </RowDefinition>
+                                <RowDefinition Height="50">
+                                </RowDefinition>
+                                <RowDefinition Height="1">
+                                </RowDefinition>-->
+                                <RowDefinition Height="30">
+                                </RowDefinition>
+                                <!--  <RowDefinition Height="1">
+                                </RowDefinition>-->
+                            </Grid.RowDefinitions>
+                            <!--   <Label Grid.Row="0" Margin="15,15,10,0" x:Name="BusinessName" VerticalTextAlignment="Center">
+                            </Label>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*">
+                                    </ColumnDefinition>
+                                    <ColumnDefinition Width="120">
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Margin="15,0,0,10" x:Name="infoLab" FontSize="15" TextColor="Gray">
+                                </Label>
+                                <StackLayout Orientation="Vertical" Grid.Column="1">
+                                    <StackLayout Orientation="Horizontal" Spacing="0">
+                                       <Image x:Name="alertBut" Source="alarm.png" IsVisible="false" Margin="0,10,0,0"  VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="40" HeightRequest="40"/>
+                                     <Image x:Name="alarmBut" Source="alert.png" IsVisible="false"  Margin="20,10,0,0"  VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="40" HeightRequest="40"/>
+                                    </StackLayout>
+                                    <Button Clicked="Handle_Clicked" Margin="0,0,0,10" FontSize="15" Text="报警 预警" VerticalOptions="Start" 
+                                    HorizontalOptions="Center" WidthRequest="100" HeightRequest="40" BackgroundColor="rgb(50,115,163)" TextColor="White"/>
+                                </StackLayout>
+                            </Grid>-->
+                            <!--  <BoxView Grid.Row="2" BackgroundColor="rgb(230,230,230)">
+                            </BoxView>-->
+                            <!--  <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120">
+                                    </ColumnDefinition>
+                                    <ColumnDefinition Width="*">
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="脱盐率" VerticalTextAlignment="Center" Margin="15,0,0,0">
+                                </Label>
+                                <Label Grid.Column="1" TextColor="Gray" x:Name="desalination" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0">
+                                </Label>
+                            </Grid>
+                            <BoxView Grid.Row="4" BackgroundColor="rgb(230,230,230)">
+                            </BoxView>
+                            <Grid Grid.Row="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120">
+                                    </ColumnDefinition>
+                                    <ColumnDefinition Width="*">
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="回收率" VerticalTextAlignment="Center" Margin="15,0,0,0">
+                                </Label>
+                                <Label Grid.Column="1" TextColor="Gray" x:Name="recovery" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0">
+                                </Label>
+                            </Grid>
+                            <BoxView Grid.Row="6" BackgroundColor="rgb(230,230,230)">
+                            </BoxView>
+                            <Grid Grid.Row="7">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120">
+                                    </ColumnDefinition>
+                                    <ColumnDefinition Width="*">
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="月平均回收率" VerticalTextAlignment="Center" Margin="15,0,0,0">
+                                </Label>
+                                <Label Grid.Column="1" TextColor="Gray" x:Name="avgrecovery" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0">
+                                </Label>
+                            </Grid>-->
+                            <!--   <BoxView Grid.Row="2" BackgroundColor="rgb(230,230,230)">
+                            </BoxView>-->
+                            <BoxView BackgroundColor="rgb(230,230,230)">
+                            </BoxView>
+                            <Label x:Name="titleLab" Text="工艺流程(工艺水)" Margin="15,0,0,0" VerticalTextAlignment="Center">
+                            </Label>
+                            <!--  <BoxView Grid.Row="4" BackgroundColor="rgb(230,230,230)">
+                            </BoxView>-->
+                        </Grid>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding flowname}" Detail="{Binding flowTypeName}" TextColor="Black" DetailColor="Silver" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.Row="1" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="gongyishuBut" Clicked="BottomBut_Clicked" Grid.Column="0" Text="工艺水" TextColor="White" BackgroundColor="rgb(50,115,163)" BorderRadius="0" Image="tick.png">
+                </Button>
+                <Button x:Name="xunhuanshuiBut" Clicked="BottomBut_Clicked" Grid.Column="1" Text="循环水" TextColor="White" BackgroundColor="rgb(77,157,146)" BorderRadius="0">
+                </Button>
+                <Button x:Name="gongyefeishuiBut" Clicked="BottomBut_Clicked" Grid.Column="2" Text="工业废水" TextColor="White" BackgroundColor="rgb(50,115,163)" BorderRadius="0">
+                </Button>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

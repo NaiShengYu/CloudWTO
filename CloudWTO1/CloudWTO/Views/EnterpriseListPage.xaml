@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.EnterpriseListPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="enttemp">
+                <ViewCell>
+                    <ContentView>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="100">
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Orientation="Vertical" Grid.Column="0" VerticalOptions="Center">
+                                <Label Text="{Binding name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Margin="10,0,10,0" />
+                                <Label Text="{Binding addr}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" Margin="10,0,10,0" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1">
+                                <Image IsVisible="false" Source="alert.png" WidthRequest="40" HeightRequest="40">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding alarm}" Value="true">
+                                            <Setter Property="IsVisible" Value="true" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                                <Image IsVisible="false" Source="alarm.png" WidthRequest="40" HeightRequest="40">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding alert}" Value="true">
+                                            <Setter Property="IsVisible" Value="true" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                            </StackLayout>
+                        </Grid>
+                    </ContentView>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="beiJing1" Aspect="AspectFill" />
+            <Grid>
+                <SearchBar Placeholder="搜索" BackgroundColor="White" HeightRequest="44" VerticalOptions="Start" x:Name="searchB" SearchButtonPressed="Handle_SearchButtonPressed" TextChanged="Handle_TextChanged">
+                </SearchBar>
+                <ListView BackgroundColor="Transparent" x:Name="lv" HasUnevenRows="false" IsPullToRefreshEnabled="true" Refreshing="Handle_Refreshing" Margin="0,43,0,0" ItemTemplate="{StaticResource enttemp}" ItemSelected="Handle_ItemSelected" ItemAppearing="Handle_ItemAppearing">
+                 <ListView.Footer>
+                        <Grid HeightRequest="35">
+                        </Grid>
+                    </ListView.Footer>
+                    <ListView.Header>
+                        <BoxView HorizontalOptions="Fill" VerticalOptions="Start" BackgroundColor="#a0a0a0" HeightRequest="1" />
+                    </ListView.Header>
+                </ListView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

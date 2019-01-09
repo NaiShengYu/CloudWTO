@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.ProcessInformationPage">
+    <ContentPage.Content>
+            <Grid RowSpacing="0">
+          <Grid.RowDefinitions>
+                <RowDefinition Height="30">
+                </RowDefinition>
+                <RowDefinition Height="25">
+                </RowDefinition>
+                <RowDefinition Height="*">
+                </RowDefinition>
+             
+            </Grid.RowDefinitions>
+            <BoxView Grid.Row="0" BackgroundColor="rgb(37,94,161)">
+            </BoxView>
+            <Label Grid.Row="0" x:Name="businessNameLab" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+            <BoxView Grid.Row="1" BackgroundColor="rgb(27,69,118)">
+            </BoxView>
+            <Label Grid.Row="1" x:Name="gongyiliucheng" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+            <ScrollView Grid.Row="2" x:Name="sv">
+                <StackLayout HorizontalOptions="Fill" Spacing="1" BackgroundColor="#F2F2F2">
+                    <Grid BackgroundColor="White" MinimumHeightRequest="45">
+                        <Label Text="提效前吨水成本" Font="17" Margin="15,5,0,5" WidthRequest="100" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Label HorizontalTextAlignment="End"  x:Name="lab1" Font="17" Margin="127,10,10,10" HorizontalOptions="Fill"/>
+                    </Grid>
+                    <Grid BackgroundColor="White" MinimumHeightRequest="45">
+                        <Label Text="提效后吨水成本" Font="17" Margin="15,5,0,5" WidthRequest="100" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Label HorizontalTextAlignment="End" x:Name="lab2" Font="17" Margin="127,10,10,10" HorizontalOptions="Fill"/>
+                    </Grid>
+                    <Grid BackgroundColor="White" MinimumHeightRequest="45">
+                        <Label Text="提效前综合利用率" Font="17" Margin="15,5,0,5" WidthRequest="100" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Label HorizontalTextAlignment="End" x:Name="lab3" Font="17" Margin="127,10,10,10" HorizontalOptions="Fill"/>
+                    </Grid>
+
+                    <Grid BackgroundColor="White" MinimumHeightRequest="45">
+                        <Label Text="总进水累计流量K1" Font="17" Margin="15,5,0,5" WidthRequest="100" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Entry Keyboard="Numeric" x:Name="entry1" Text="1" Margin="127,10,10,10" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
+                    </Grid>
+                    <Grid BackgroundColor="White" MinimumHeightRequest="45">
+                        <Label Text="总产水累计流量K2" Font="17" Margin="15,5,0,5" WidthRequest="100" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Entry Keyboard="Numeric" x:Name="entry2" Text="1" Margin="127,10,10,10" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
+                    </Grid>
+                       <Grid RowSpacing="1" BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45">
+                            </RowDefinition>
+                            <RowDefinition Height="1">
+                            </RowDefinition>
+                            <RowDefinition Height="45">
+                            </RowDefinition>
+                            <RowDefinition Height="1">
+                            </RowDefinition>
+                            <RowDefinition Height="90">
+                            </RowDefinition>
+
+                        </Grid.RowDefinitions>
+            
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="100">
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="开始时间" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start">
+                            </Label>
+                            <Button x:Name="startDateBut" Grid.Column="1" Text="{Binding Date, StringFormat='{0:yyyy-MM-dd}'}" BindingContext="{x:Reference Name=startDatePicker}" Clicked="Test_Clicked" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <Button x:Name="startTimeBut" Grid.Column="2" Text="{Binding StartTimeString, Mode=OneWay}" Clicked="Test_Clicked" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <DatePicker x:Name="startDatePicker" HorizontalOptions="End" IsVisible="false" />
+                            <TimePicker x:Name="starTimePicker" IsVisible="false" Time="{Binding startTime}" />
+                        </Grid>
+                        <BoxView Grid.Row="1" BackgroundColor="rgb(230,230,230)">
+                        </BoxView>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="100">
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="结束时间" VerticalTextAlignment="Center" Margin="15,0,0,0">
+                            </Label>
+                            <Button x:Name="endDateBut" Grid.Column="1" Text="{Binding Date, StringFormat='{0:yyyy-MM-dd}'}" BindingContext="{x:Reference Name=endDatePicker}" Clicked="Test_Clicked" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <Button x:Name="endTimeBut" Grid.Column="2" Text="{Binding EndTimeString ,Mode=OneWay}" Clicked="Test_Clicked" BindingContext="{x:Reference Name=endTimePicker}" BackgroundColor="rgb(240,240,240)" TextColor="Gray" BorderRadius="0" />
+                            <DatePicker IsVisible="false" x:Name="endDatePicker">
+                            </DatePicker>
+                            <TimePicker x:Name="endTimePicker" IsVisible="false" Time="{Binding endTime}" />
+                        </Grid>
+                        <BoxView Grid.Row="3" BackgroundColor="rgb(230,230,230)">
+                        </BoxView>
+                        <StackLayout Grid.Row="4" Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="40">
+                            <Button Clicked="AddData" TextColor="White" BackgroundColor="rgb(37,94,161)" Text="计算" FontSize="17" WidthRequest="80" BorderRadius="0" Margin="0,15,0,35"/>
+                            <Button Clicked="WaterData" TextColor="White" BackgroundColor="rgb(37,94,161)" Text="原水水质" HorizontalOptions="End" FontSize="17" WidthRequest="120" BorderRadius="0" Margin="0,15,20,35"/>
+                        </StackLayout>
+
+                    </Grid>
+                    <Grid BackgroundColor="White" HeightRequest="45" >
+                        <Label Text="总进水量" Font="17" Margin="15,5,0,5" WidthRequest="100" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Label HorizontalTextAlignment="End" x:Name="lab4" Font="17" Margin="127,10,10,10" HorizontalOptions="Fill"/>
+                    </Grid>
+                    <Grid BackgroundColor="White" HeightRequest="45">
+                        <Label Text="总产水量" Font="17" Margin="15,5,0,5" WidthRequest="100" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Label HorizontalTextAlignment="End" x:Name="lab5" Font="17" Margin="127,10,10,10" HorizontalOptions="Fill"/>
+                    </Grid>
+                    <Grid BackgroundColor="White" MinimumHeightRequest="45">
+                        <Label Text="提效后综合利用率" Font="17" Margin="15,5,0,5" WidthRequest="100" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Label HorizontalTextAlignment="End" x:Name="lab6" Font="17" Margin="127,10,10,10" HorizontalOptions="Fill"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

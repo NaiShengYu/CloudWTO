@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.ROEquipmentListPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30">
+                </RowDefinition>
+                <RowDefinition Height="25">
+                </RowDefinition>
+                <RowDefinition Height="*">
+                </RowDefinition>
+
+            </Grid.RowDefinitions>
+            
+             <Image Source="beiJing1" Aspect="AspectFill" 
+                         Grid.Row="0" Grid.RowSpan="3" Margin="0,-55,0,0" />
+            
+            <BoxView Grid.Row="0" BackgroundColor="rgb(37,94,161)">
+            </BoxView>
+            <Label Grid.Row="0" x:Name="businessNameLab" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+            <BoxView Grid.Row="1" BackgroundColor="rgb(27,69,118)">
+            </BoxView>
+            <Label Grid.Row="1" x:Name="gongyiliucheng" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+                
+            <ListView Grid.Row="2" BackgroundColor="Transparent" x:Name="listV" RowHeight="50" ItemSelected="Handle_ItemSelected" >
+             <ListView.Footer>
+                        <Grid HeightRequest="35">
+                        </Grid>
+                    </ListView.Footer>
+                    
+                    <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="50">
+                                        </ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="1" Margin="10" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Source="eq.png"/>
+                                    <Label FontSize="17" VerticalTextAlignment="Center" Margin="10,0,0,0" Text="{Binding nameName}"/>
+
+                                </Grid>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+           </Grid>
+     
+    </ContentPage.Content>
+</ContentPage>

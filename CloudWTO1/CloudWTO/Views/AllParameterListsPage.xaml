@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.AllParameterListsPage">
+    <ContentPage.Content>
+           <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30">
+                </RowDefinition>
+                <RowDefinition Height="25">
+                </RowDefinition>
+                <RowDefinition Height="40">
+                </RowDefinition>   
+                <RowDefinition Height="*">
+                </RowDefinition>
+                <RowDefinition Height="45">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image Source="beiJing1" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="5" Margin="0,-95,0,45" />
+
+            <BoxView Grid.Row="0" BackgroundColor="rgb(37,94,161)">
+            </BoxView>
+            <Label Grid.Row="0" x:Name="businessNameLab" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+            <BoxView Grid.Row="1" BackgroundColor="rgb(27,69,118)">
+            </BoxView>
+            <Label Grid.Row="1" x:Name="gongyiliucheng" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+            <SearchBar x:Name="searchB" Grid.Row="2" Placeholder="搜索" BackgroundColor="White" HeightRequest="44" VerticalOptions="Start" SearchButtonPressed="Handle_SearchButtonPressed" TextChanged="Handle_TextChanged">
+            </SearchBar>
+
+
+            <Grid Grid.Row="3">
+            <ListView BackgroundColor="Transparent" x:Name="listV" RowHeight="50" ItemSelected="Handle_ItemSelected" ItemAppearing="Handle_ItemAppearing">
+            <ListView.Footer>
+                        <Grid HeightRequest="35">
+                        </Grid>
+                    </ListView.Footer>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="50">
+                                        </ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="param.png" Grid.Column="1" Margin="10" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" >
+                                    </Image>
+                                    <Grid RowSpacing="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*">
+                                            </RowDefinition>
+                                            <RowDefinition Height="*">
+                                            </RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label FontSize="16" VerticalTextAlignment="End" Margin="10,0,0,0" Text="{Binding NameAndName}" >
+                                        </Label>
+                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="3">
+                                        <Label FontSize="14" Margin="10,0,0,0" TextColor="Gray" Text="最新值">
+                                        </Label>
+                                        <Label FontSize="14" TextColor="Gray" Text="{Binding value,StringFormat='{0:F2}'}">
+                                        </Label>
+                                      <Label FontSize="14" TextColor="Gray" Text="{Binding operparamUnit}">
+                                        </Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Grid>
+            <Grid Grid.Row="4" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Clicked="Handle_Clicked" Grid.Column="0" BackgroundColor="rgb(230,230,230)" BorderRadius="0" Image="multi.png"/>
+                <Button  Grid.Column="1" BackgroundColor="rgb(230,230,230)" BorderRadius="0" Image="single.png"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

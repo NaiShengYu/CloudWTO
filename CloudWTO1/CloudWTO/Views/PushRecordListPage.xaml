@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.PushRecordListPage">
+    <ContentPage.Content>
+     <Grid>
+                  <Image Source="beiJing1" Aspect="AspectFill" />
+            
+        
+           <ListView BackgroundColor="Transparent" x:Name="listView" SeparatorVisibility="None" ItemSelected="Handle_ItemSelected">
+            <ListView.Footer>
+                        <Grid HeightRequest="35">
+                        </Grid>
+                    </ListView.Footer>
+            <ListView.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25">
+                        </RowDefinition>
+                    </Grid.RowDefinitions>
+                    <BoxView Grid.Row="0" BackgroundColor="rgb(37,94,161)">
+                    </BoxView>
+                    <Label Grid.Row="0" x:Name="businessNameLab" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+                    </Label>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*">
+                                    </RowDefinition>
+                                    <RowDefinition Height="1">
+                                    </RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding pushName}" VerticalTextAlignment="Center" Margin="15,0,0,0">
+                                    </Label>
+                                    <Label FontSize="15" Grid.Column="1" TextColor="Gray" Text="{Binding pushTime}" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0">
+                                    </Label>
+                                </Grid>
+                                <BoxView Grid.Row="1" BackgroundColor="rgb(230,230,230)" HorizontalOptions="FillAndExpand">
+                                </BoxView>
+                            </Grid>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

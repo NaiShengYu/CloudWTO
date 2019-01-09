@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.ROEquipmentInfoPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30">
+                </RowDefinition>
+                <RowDefinition Height="25">
+                </RowDefinition>
+                <RowDefinition Height="*">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+             <Image Source="beiJing1" Aspect="AspectFill" 
+                         Grid.Row="0" Grid.RowSpan="3" Margin="0,-55,0,0" />
+            <BoxView Grid.Row="0" BackgroundColor="rgb(37,94,161)">
+            </BoxView>
+            <Label Grid.Row="0" x:Name="businessNameLab" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+            <BoxView Grid.Row="1" BackgroundColor="rgb(27,69,118)">
+            </BoxView>
+            <Label Grid.Row="1" x:Name="gongyiliucheng" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+            </Label>
+             
+            
+            <ListView Grid.Row="2" BackgroundColor="Transparent" x:Name="listV"  HasUnevenRows="true" RowHeight="50">
+             <ListView.Footer>
+                        <Grid HeightRequest="35">
+                        </Grid>
+                    </ListView.Footer>
+                    <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell IsEnabled="false">
+                            <ContentView>
+                                <Grid MinimumWidthRequest="50">
+                                    <Label Text="{Binding opname}" Font="17" Margin="15,5,0,5" WidthRequest="120" HorizontalOptions="Start" VerticalTextAlignment="Center"/>
+                                    <Label HorizontalTextAlignment="End" Text="{Binding valueUnit}" Font="17" Margin="127,10,15,10" HorizontalOptions="Fill" />
+                                </Grid>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                </Grid>
+       
+    </ContentPage.Content>
+</ContentPage>

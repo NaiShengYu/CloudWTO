@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CloudWTO.Views.AlarmInfoPage">
+    <ContentPage.Content>
+         <Grid>
+                  <Image Source="beiJing1" Aspect="AspectFill" />
+         <ScrollView BackgroundColor="Transparent">
+            <StackLayout Spacing="0">
+                <Grid>
+                    <BoxView BackgroundColor="rgb(37,94,161)">
+                    </BoxView>
+                    <Label x:Name="businessNameLab" Margin="10,0,0,0" FontSize="15" TextColor="White" VerticalTextAlignment="Center">
+                    </Label>
+                </Grid>
+                <Grid Grid.Row="1" HeightRequest="45">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120">
+                        </ColumnDefinition>
+                        <ColumnDefinition Width="*">
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="发出时间" VerticalTextAlignment="Center" Margin="15,0,0,0">
+                    </Label>
+                    <Label Text="{Binding time, StringFormat='{0:yyyy-MM-dd}'}" FontSize="15" Grid.Column="1" TextColor="Gray" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,10,0">
+                    </Label>
+                </Grid>
+                <BoxView BackgroundColor="rgb(230,230,230)" HeightRequest="1" />
+                <Grid HeightRequest="45">
+                <Grid.GestureRecognizers>
+                 <TapGestureRecognizer
+                 Tapped="OnParamTapped1"
+                NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                    
+                    <Label Text="传感参数" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start"  />
+                    <Label x:Name="flowName" FontSize="15" TextColor="Gray" HorizontalOptions="End" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0">
+                    </Label>
+<!--                    <Button x:Name="chuangancanshu" BorderRadius="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Clicked="Handle_Clicked" InputTransparent="false" BackgroundColor="Transparent"/>
+-->                </Grid>
+                <BoxView BackgroundColor="rgb(230,230,230)" HeightRequest="1" />
+                <Grid HeightRequest="45">
+                    <Label Text="预警值" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start">
+                    </Label>
+                    <Label Text="{Binding valueAndUnit}" FontSize="15" TextColor="Gray" HorizontalOptions="End" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0">
+                    </Label>
+                   
+                </Grid>
+                <BoxView BackgroundColor="rgb(230,230,230)" HeightRequest="1" />
+
+                <Grid HeightRequest="45">
+                    <Label Text="预计超标时间" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start">
+                    </Label>
+                    <Label Text="{Binding forecastTime}" FontSize="15" HorizontalOptions="End" TextColor="Gray" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0">
+                    </Label>
+                </Grid>
+                <BoxView BackgroundColor="rgb(230,230,230)" HeightRequest="1" />
+                <Grid HeightRequest="45">
+                     <Grid.GestureRecognizers>
+                 <TapGestureRecognizer
+                 Tapped="OnParamTapped2"
+                NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                    <Label Text="处理预案" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start">
+                    </Label>
+                    <Image Source="rightarr.png" HorizontalOptions="End" Margin="0,0,10,0"  WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+                    </Image>
+<!--                    <Button x:Name="chuliyuan" BorderRadius="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Clicked="Handle_Clicked" InputTransparent="false" BackgroundColor="Transparent"/>-->
+                </Grid>
+                <BoxView BackgroundColor="rgb(230,230,230)" HeightRequest="1" />
+                <Grid HeightRequest="45">
+                     <Grid.GestureRecognizers>
+                 <TapGestureRecognizer
+                 Tapped="OnParamTapped3"
+                NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                    <Label Text="联系人" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start">
+                    </Label>
+                    <Label Text="{Binding contact}" FontSize="15" HorizontalOptions="End" TextColor="Gray" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0">
+                    </Label>
+<!--                    <Button x:Name="call" BorderRadius="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Clicked="Handle_Clicked" InputTransparent="false" BackgroundColor="Transparent"/>-->
+                </Grid>
+                <BoxView BackgroundColor="rgb(230,230,230)" HeightRequest="1" />
+                <Grid HeightRequest="45">
+                    <Label Text="状态" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start">
+                    </Label>
+                    <Label x:Name="handle" FontSize="15" HorizontalOptions="End" TextColor="Gray" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding handle}" Value="0">
+                                <Setter Property="Text" Value="未处理" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding handle}" Value="1">
+                                <Setter Property="Text" Value="已处理" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </Grid>
+                <BoxView BackgroundColor="rgb(230,230,230)" HeightRequest="1" />
+                <Grid HeightRequest="45">
+                     <Grid.GestureRecognizers>
+                 <TapGestureRecognizer
+                 Tapped="OnParamTapped4"
+                NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                    <Label Text="推送记录" VerticalTextAlignment="Center" Margin="15,0,0,0" HorizontalOptions="Start">
+                    </Label>
+                    <Image Source="rightarr.png" HorizontalOptions="End" Margin="0,0,10,0" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+                    </Image>
+<!--                    <Button x:Name="tuisongjilu" BorderRadius="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Clicked="Handle_Clicked" InputTransparent="false" BackgroundColor="Transparent"/>-->
+                </Grid>
+                <BoxView BackgroundColor="rgb(230,230,230)" HeightRequest="1" Margin="0,0,0,30"/>
+            </StackLayout>
+        </ScrollView>
+                            </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
